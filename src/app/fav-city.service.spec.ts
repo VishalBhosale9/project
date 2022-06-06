@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FavCityService } from './fav-city.service';
+import { FavCityService } from './watchlistcity.service';
 
 describe('FavCityService', () => {
   let service: FavCityService;

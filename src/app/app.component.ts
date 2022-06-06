@@ -1,6 +1,6 @@
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FavCityService } from './fav-city.service';
+import { FavCityService } from './watchlistcity.service';
 import { ServicesService } from './services.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserServiceService } from './user-service.service';

@@ -17,6 +17,8 @@ export class WeatherforecastComponent implements OnInit {
   flag = false;
   citieslist: any=[];
   forecastday:any[]=[]
+  forecastdayf:any[]=[]
+
   city: any;
   days:string=''
   constructor(public searchService: SearchServiceService, private snack: MatSnackBar) { }
@@ -34,9 +36,22 @@ export class WeatherforecastComponent implements OnInit {
     this.searchService.GetWeatherDetails(this.city,this.days).subscribe((resp:any)=> {
  // this.forecast=response.forecast.forcastday;
       console.log("---")
-      console.log(resp.forecast.forecastday)
       
-this.forecastday=resp.forecast.forecastday;
+this.forecastday=resp.list;
+
+let c=0;
+var days=parseInt(this.days);
+
+for (let i = 0; i < this.forecastday.length && c < days;) {
+  this.forecastdayf[c]=this.forecastday[i];
+  console.log(i+" "+c)
+  c++;
+  i=i+8;
+}
+console.log("----")
+
+console.log(this.forecastdayf)
+
 
       this.ngOnInit();
   

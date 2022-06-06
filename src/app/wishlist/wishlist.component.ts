@@ -1,7 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchServiceService } from 'src/Auth/Weathersearch-service.service';
-import { FavCityService } from '../fav-city.service';
+import { FavCityService } from '../watchlistcity.service';
 
 @Component({
   selector: 'app-favourites',

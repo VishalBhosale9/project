@@ -14,28 +14,24 @@ export class AppInterceptorServiceService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req)
-      /*.pipe(
-        catchError(this.handleError)
-      );*/
+  
       .pipe(
         tap(event => {
           if (event instanceof HttpResponse) {
 
             console.log(event.body);
-            // http response status code
             console.log(event);
 
-            // shows success snackbar with green background
-            if (event.body == 'User Registered Successfully') {
+            if (event.body == 'You are registered Successly!') {
               this.snack.open(event.body, 'Close', {
                 duration: 40000,
-                panelClass: ['mat-toolbar', 'mat-warn']
+                panelClass: ['mat-toolbar', 'mat-success']
               });
 
             }
 
 
-            if (event.body == 'Successfully Logged In') {
+            if (event.body == 'Logged In') {
               this.snack.open("User logged in successfully", 'Close', {
                 duration: 4000,
                 panelClass: ['mat-toolbar', 'mat-warn']
@@ -44,7 +40,7 @@ export class AppInterceptorServiceService implements HttpInterceptor {
             }
 
             if (event.body == 'logged out') {
-              this.snack.open("User logged out successfully", 'Close', {
+              this.snack.open("logged out", 'Close', {
                 duration: 4000,
                 panelClass: ['mat-toolbar', 'mat-warn']
               });

@@ -27,7 +27,7 @@
 
 <div class = weather-card *ngIf="found&&viewCard" style="background-image: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;;">
 <mat-card class="mat-elevation-z5">
-  <mat-card-header>
+  <mat-card-header style="background-color: grey">
     <mat-card-title>{{ city.name }}  weather</mat-card-title>
     <mat-card-subtitle>Today: {{getDate()}}</mat-card-subtitle>
   </mat-card-header>
@@ -44,10 +44,10 @@
         <span style="display:inline; "> Min Temp : {{ city.mintemp }} </span>/
         <span style="display:inline; "> Max Temp :{{ city.maxtemp }}</span>
     </div>
+    <div class="space"></div>
       <span class = "feels-like">Pressure : {{ city.pressure }}</span>
       <span class = "feels-like">Humidity : {{ city.humidity }}</span>
-      <span class = "feels-like">Sunrise  :  {{ city.sunrise }}</span>
-      <span class = "feels-like">Sunset   :  {{ city.sunset }}</span>
+    
      
 
       </div>
@@ -55,7 +55,7 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="favToggle()" [style.color]="toggleColor">{{ toggleString }}</button>
+    <button mat-button (click)="favToggle()" mat-raised-button [style.color]="toggleColor">{{ toggleString }}</button>
 
   </mat-card-actions>
 </mat-card>

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FavCityService } from '../fav-city.service';
+import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
+import { FavCityService } from '../watchlistcity.service';
 import { GetCitiesService } from '../get-cities.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchServiceService } from 'src/Auth/Weathersearch-service.service';
@@ -9,7 +9,7 @@ import { City } from '../city';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,DoCheck {
   userCities: any = [];
   cities:any[]=[];
   city: any;
@@ -21,6 +21,10 @@ export class DashboardComponent implements OnInit {
   constructor(public cityService: GetCitiesService, public favcity: FavCityService, public searchService: SearchServiceService, 
               private snack: MatSnackBar) {
                }
+  ngDoCheck(): void {
+    this.cityname=localStorage.getItem('city');
+
+  }
 
 
   ngOnInit(): void {
